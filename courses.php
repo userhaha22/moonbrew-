@@ -1,6 +1,5 @@
 <?php
-// Include database connection
-include('db.php');
+include('db.php'); // Include the database connection
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -34,9 +33,8 @@ include('db.php');
         <h2>Explore Our Coffee Courses</h2>
         <ul>
             <?php
-            // Fetch courses from the database
-            $sql = "SELECT id, title, description FROM courses";
-            $result = $conn->query($sql);
+            $query = "SELECT id, title, description FROM courses";
+            $result = $conn->query($query);
 
             if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
@@ -46,7 +44,7 @@ include('db.php');
                           </li>";
                 }
             } else {
-                echo "<li>No courses available at the moment. Please check back later!</li>";
+                echo "<li>No courses are available at the moment. Please check back later.</li>";
             }
             ?>
         </ul>
