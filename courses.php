@@ -41,9 +41,8 @@ include('db.php');
             if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
                     echo "<li>
-                            <strong>" . $row['title'] . "</strong>
-                            <p>" . $row['description'] . "</p>
-                            <button onclick=\"window.location.href='course_details.php?id=" . $row['id'] . "';\">View Details</button>
+                            <strong>" . htmlspecialchars($row['title']) . "</strong>
+                            <p>" . htmlspecialchars($row['description']) . "</p>
                           </li>";
                 }
             } else {
